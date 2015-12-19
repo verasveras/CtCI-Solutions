@@ -29,6 +29,7 @@ public:
 
 
 	// delete node that matches the data provided
+	// this will delete only the first instance of the matching node
 	void deleteNode(int x) {
 		Node * ele = this;
 		Node * prev = this; 
