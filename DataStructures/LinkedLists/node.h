@@ -17,12 +17,12 @@ public:
 	Node& operator= (const Node& y);
 	
 	// functions
-	void append(int x);
-	void deleteNode(int x);
-	// void deleteNodes(int x);
-	void printList();
+	void append(int x); // append a node to the end of a list
+	void deleteNode(int x); // delete one node, the first node in the list that matches the data
+	void printList(); // print the list.
 	void deleteDupes();
-	Node* deleteNodes(int x);
-	Node* findKtoLast(int x);
+	Node* deleteNodes(int x); // delete Nodes that all match a given data 
+	Node* findKtoLast(int x); // find and return the kth to last element in a list.
+	void deleteThisNode(); // delete a node in a list, given only the node
 
 };

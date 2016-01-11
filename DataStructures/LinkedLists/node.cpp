@@ -116,6 +116,7 @@ Node* Node::deleteNodes(int x) {
 
 }
 
+
 // print the list
 void Node::printList() {
 	Node* ele = this;
@@ -146,6 +147,7 @@ void Node::deleteDupes() {
 
 }
 
+
 Node* Node::findKtoLast(int x) {
 
 	if (this == nullptr) return nullptr;
@@ -169,4 +171,25 @@ Node* Node::findKtoLast(int x) {
 	}
 
 	return curr;
+}
+
+
+void Node::deleteThisNode() {
+
+	Node * curr = this;
+
+	if (curr->next == nullptr) {
+		cout << "This function does not delete the last element in a list!" << endl;
+		return;
+	}
+	
+	while (curr->next != nullptr && ((curr->next)->next) != nullptr) {
+		curr->data = (curr->next)->data;
+		curr = curr->next;
+	}
+
+	curr->data = (curr->next)->data;
+	curr->next = nullptr;
+	
+
 }
