@@ -148,6 +148,7 @@ void Node::deleteDupes() {
 }
 
 
+// find the kth to Last element.
 Node* Node::findKtoLast(int x) {
 
 	if (this == nullptr) return nullptr;
@@ -174,9 +175,10 @@ Node* Node::findKtoLast(int x) {
 }
 
 
+// delete the node the function is called on
 void Node::deleteThisNode() {
 
-	Node * curr = this;
+	Node* curr = this;
 
 	if (curr->next == nullptr) {
 		cout << "This function does not delete the last element in a list!" << endl;
@@ -191,5 +193,52 @@ void Node::deleteThisNode() {
 	curr->data = (curr->next)->data;
 	curr->next = nullptr;
 	
+
+}
+
+
+// partition the list around a node
+Node* Node::partition(int x){
+
+        if (this == nullptr) 
+		return nullptr;
+
+	Node* list = this;
+	Node* small = nullptr; // list of elements < X
+	Node* big = nullptr; // list of elements >= x
+	Node* partitioned = nullptr; // final list to return;
+
+	while (list != nullptr){
+		
+		if (list->data < x) {
+			if (small == nullptr)
+				small = new Node(list->data);
+			else
+				(*small).append(list->data);
+		} 
+
+		else if (list->data >= x) {
+			if (big == nullptr)
+				big = new Node (list->data);
+			else
+				(*big).append(list->data);
+	
+	
+		}
+	
+		list = list->next; 
+
+	}
+
+	partitioned = small;
+	while (small->next != nullptr){
+		small = small->next;
+	}
+
+	small->next = big;
+
+
+
+	return partitioned;
 
 }
