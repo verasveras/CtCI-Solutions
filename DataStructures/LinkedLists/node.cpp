@@ -144,7 +144,6 @@ void Node::deleteDupes() {
 
 	}
 
-
 }
 
 
@@ -238,7 +237,39 @@ Node* Node::partition(int x){
 	small->next = big;
 
 
-
 	return partitioned;
+
+}
+
+
+void add (Node* summand1, Node* summand2, Node* sumNode, int oldre) {
+
+	int sum = (summand1->data) + (summand2->data) + oldre;
+	int remainder = 0;
+
+	if (sum > 9){
+		remainder = 1;
+		sum -= 10;
+
+	}
+        
+        sumNode->data = sum;
+        Node* nextSum = new Node();
+	sumNode->next = nextSum;
+
+        Node * next1 = summand1->next;
+	Node * next2 = summand2->next;
+	
+	if (next1 != nullptr && next2 !=nullptr){
+		add (next1,  next2, nextSum, remainder);
+	}
+
+	else if (remainder == 1) {
+		nextSum->data = 1;	
+	}
+	
+	else if (remainder == 0){
+		sumNode->next = nullptr;
+	}
 
 }
