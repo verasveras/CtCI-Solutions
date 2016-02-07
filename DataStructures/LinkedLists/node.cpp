@@ -117,6 +117,7 @@ Node* Node::deleteNodes(int x) {
 }
 
 
+
 // print the list
 void Node::printList() {
 	Node* ele = this;
@@ -147,6 +148,7 @@ void Node::deleteDupes() {
 }
 
 
+
 // find the kth to Last element.
 Node* Node::findKtoLast(int x) {
 
@@ -174,6 +176,7 @@ Node* Node::findKtoLast(int x) {
 }
 
 
+
 // delete the node the function is called on
 void Node::deleteThisNode() {
 
@@ -194,6 +197,7 @@ void Node::deleteThisNode() {
 	
 
 }
+
 
 
 // partition the list around a node
@@ -242,6 +246,7 @@ Node* Node::partition(int x){
 }
 
 
+
 void add (Node* summand1, Node* summand2, Node* sumNode, int oldre) {
 
 	int sum = (summand1->data) + (summand2->data) + oldre;
@@ -261,7 +266,7 @@ void add (Node* summand1, Node* summand2, Node* sumNode, int oldre) {
 	Node * next2 = summand2->next;
 	
 	if (next1 != nullptr && next2 !=nullptr){
-		add (next1,  next2, nextSum, remainder);
+		add (next1, next2, nextSum, remainder);
 	}
 
 	else if (remainder == 1) {
@@ -273,3 +278,41 @@ void add (Node* summand1, Node* summand2, Node* sumNode, int oldre) {
 	}
 
 }
+
+
+
+Node Node::reverse(){
+	
+	Node* curr = this;
+	Node* prev = nullptr;
+	Node* tmp = nullptr;	
+
+	while (curr != nullptr){
+		tmp = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = tmp;
+			
+	}
+
+	return *prev;
+}
+
+
+// copy list
+Node Node::copy(){
+
+	
+	Node* curr = this;
+	Node newList(curr->data);
+	curr = curr->next;
+
+	while (curr!= nullptr){
+		newList.append(curr->data);
+		curr = curr->next;
+	}
+
+	return *curr;
+}
+
+// bool Node::isPalindrome(){}

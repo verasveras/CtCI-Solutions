@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "node.h"
-// CtCI Problem 2.4 - Write a function to partition a linked list around value X.
+// CtCI Problem 2.5 - Two linked lists represent numbers. Add the two numbers when the digits are stored backwards.
 // Solution in C++
 
 using std::cout;

@@ -26,6 +26,8 @@ public:
 	Node* findKtoLast(int x); // find and return the kth to last element in a list.
 	Node* partition(int x);
 	void deleteThisNode(); // delete a node in a list, given only the node
+	Node reverse(); // reverse a list, returns the head of the new list.
+	Node copy(); // copy a list
 
 };
 
