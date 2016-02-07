@@ -26,6 +26,17 @@ void Node::append(int x) {
 	end->next = toAdd;
 }
 
+// add a given node to the end of the list.
+void Node::append(Node* x){
+
+	Node* end = this;
+	while (end->next != nullptr){
+		end = end->next;
+	}
+
+	end->next = x;
+}
+
 
 // delete node that matches the data provided
 void Node::deleteNode(int x) {
@@ -312,7 +323,39 @@ Node Node::copy(){
 		curr = curr->next;
 	}
 
-	return *curr;
+	return newList;
 }
 
-// bool Node::isPalindrome(){}
+// return the node that's at the beginning of a loop in the linked list.
+Node Node::loopStart(){
+
+	Node* slow = this;
+	Node* fast = this->next;
+
+	while (slow != fast){
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+
+	return * slow;
+
+}
+
+bool Node::isPalindrome(){
+	
+	Node curr = (*this).copy();	
+	Node reversed = (*this).reverse();
+
+	while (curr.next != nullptr){
+
+		if (reversed.data != curr.data)
+			return false;
+
+		reversed = *(reversed.next);
+		curr = *(curr.next);
+
+	}
+
+	return true;
+
+}
